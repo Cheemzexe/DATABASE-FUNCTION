@@ -1,9 +1,5 @@
 
-#Queries the database using the database parameter as the database
-#to query and the query parameter as the actual query to issue
-# for SELECT
-#
-def query_database(database, query):
+def query_database(database, query): ### function to execute the query
 	Lconn = sqlite3.connect(database)
 	cur = Lconn.cursor()			# use a local cursor
 	cur.execute(query)
@@ -11,10 +7,7 @@ def query_database(database, query):
 	cur.close()
 	return rows
 #
-#
-#Executes the sql statement to INSERT and UPDATE rows
-#
-def execute_sql(database, sql_statement, parameters=()):
+def execute_sql(database, sql_statement, parameters=()): #Function which executes the SQL statement to insert then update the rows
 	with sqlite3.connect(database) as Lconn:
 		cur = Lconn.cursor()
 		cur.execute(sql_statement, parameters)
